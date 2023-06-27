@@ -5,7 +5,7 @@ const answers: string[] = [];
 const reponse: any[] = [
   "name",
   "Léonard de Vinci",
-  8,
+  "8",
   "George Orwell",
   "Groenland",
   "Le Nil",
@@ -28,6 +28,9 @@ function showQuestion(index: number) {
 
 function nextPage(event: Event) {
   event.preventDefault();
+
+  const button = event.target as HTMLButtonElement;
+  button.disabled = true;
 
   const answerInput = document.getElementById(
     `answer${currentQuestionIndex + 1}`
@@ -52,7 +55,7 @@ function showResult() {
     resultHTML += `<p>Question ${i}: ${
       question.querySelector("h2")!.textContent
     }</p>`;
-    resultHTML += `<p>Réponse : ${answer}</p>`;
+    resultHTML += `<p>Votre réponse : ${answer}. Solution : ${reponse[i]}</p>`;
   }
 
   resultatDiv.innerHTML = resultHTML;
@@ -60,3 +63,13 @@ function showResult() {
 }
 
 showQuestion(0);
+
+const form = document.querySelectorAll("form");
+form.forEach((formElement) => {
+  formElement.addEventListener("submit", nextPage);
+});
+
+const nextButtons = document.querySelectorAll("#nextButton");
+nextButtons.forEach((nextButton) => {
+  nextButton.addEventListener("click", nextPage);
+});

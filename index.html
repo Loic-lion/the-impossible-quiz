@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
     <title>the impossible quiz</title>
+    <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
     <header>
@@ -21,7 +22,7 @@
             id="answer1"
             required
           />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Commencer</button>
         </form>
       </div>
 
@@ -35,7 +36,7 @@
             id="answer2"
             required
           />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -46,7 +47,7 @@
             chiffre) ?
           </h2>
           <input type="number" name="answer" id="answer3" required />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -63,7 +64,7 @@
             <option>Stephen King</option>
             <option>Tolkien</option>
           </select>
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -76,7 +77,7 @@
             id="answer5"
             placeholder="Entrez votre réponse"
           />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -89,7 +90,7 @@
             id="answer6"
             placeholder="Entrez votre réponse"
           />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -102,7 +103,7 @@
             id="answer7"
             placeholder="Entrez votre réponse"
           />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -117,7 +118,7 @@
             <option>Ludwig van Beethoven</option>
             <option>Wolfgang Amadeus Mozart</option>
           </select>
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -125,7 +126,7 @@
         <form id="form-1">
           <h2>Quelle est la date de la chute du mur de Berlin ?</h2>
           <input type="date" id="answer9" name="year-input" />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -138,7 +139,7 @@
             id="answer10"
             placeholder="Entrez votre réponse"
           />
-          <button onclick="nextPage(event)">Suivant</button>
+          <button id="nextButton">Suivant</button>
         </form>
       </div>
 
@@ -151,7 +152,7 @@
             id="answer11"
             placeholder="Entrez votre réponse"
           />
-          <button onclick="nextPage(event)">résultat</button>
+          <button id="nextButton">Résultats</button>
         </form>
       </div>
 
@@ -159,10 +160,11 @@
     </main>
     <footer>
       <section class="container_life"></section>
-      <p>Vie(s) restante(s) :</p>
+      <p>Vie(s) restante(s):</p>
 
       <section class="container_time"></section>
+      <p>Temps restant:</p>
     </footer>
+    <script type="module" src="/src/main.ts"></script>
   </body>
-  <script type="module" src="/src/main.ts"></script>
 </html>
