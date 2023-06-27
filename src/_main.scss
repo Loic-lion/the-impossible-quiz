@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    min-height: 110px;
     background-image: linear-gradient(
       to bottom,
       #8d7b68,
@@ -22,9 +22,11 @@ body {
       #a4907c
     );
     border-bottom: 2px solid #dac3ad86;
+    margin-bottom: 30px;
     h1 {
       color: white;
       font-size: 50px;
+      text-align: center;
     }
   }
   main {
@@ -32,10 +34,58 @@ body {
     justify-content: center;
     div {
       background-color: #f1dec96c;
-      h2 {
-        font-size: 20px;
+      min-height: 100px;
+      width: 350px;
+      border-radius: 5px;
+      border: 2px solid #dac3ad86;
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          font-size: 20px;
+          color: white;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          text-align: center;
+        }
+        input {
+          margin-bottom: 10px;
+          border-radius: 20px;
+          border: none;
+          padding: 5px;
+        }
+        button {
+          margin-bottom: 10px;
+          border-radius: 20px;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.658);
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.658);
+            color: white;
+          }
+        }
+
+        select {
+          margin-bottom: 10px;
+          border-radius: 20px;
+          border: none;
+          padding: 5px;
+        }
       }
     }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    border-top: 2px solid #dac3ad86;
   }
 }
 .question {

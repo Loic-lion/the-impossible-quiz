@@ -41,7 +41,10 @@
 
       <div id="page2" class="question">
         <form>
-          <h2>Combien de planètes composent notre système solaire ?</h2>
+          <h2>
+            Combien de planètes composent notre système solaire (entrez un
+            chiffre) ?
+          </h2>
           <input type="number" name="answer" id="answer3" required />
           <button onclick="nextPage(event)">Suivant</button>
         </form>
@@ -50,7 +53,12 @@
       <div id="page3" class="question">
         <form>
           <h2>Qui a écrit le roman "1984" ?</h2>
-          <select name="answer" id="answer4" required>
+          <select
+            name="answer"
+            id="answer4"
+            required
+            placeholder="Entrez votre réponse"
+          >
             <option>George Orwell</option>
             <option>Stephen King</option>
             <option>Tolkien</option>
@@ -149,6 +157,12 @@
 
       <div id="resultat" style="display: none"></div>
     </main>
+    <footer>
+      <section class="container_life"></section>
+      <p>Vie(s) restante(s) :</p>
+
+      <section class="container_time"></section>
+    </footer>
   </body>
-  <script src="/src/main.ts"></script>
+  <script type="module" src="/src/main.ts"></script>
 </html>

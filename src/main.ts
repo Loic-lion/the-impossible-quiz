@@ -42,7 +42,8 @@ function nextPage(event: Event) {
 }
 
 function showResult() {
-  let resultHTML = "<h2>Voici tes résultats :</h2>";
+  let nameUser: string = answers[0];
+  let resultHTML = "<h2>Voici tes résultats " + nameUser + ":</h2>";
 
   for (let i = 1; i < questions.length; i++) {
     const question = questions[i];
