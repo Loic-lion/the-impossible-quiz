@@ -1,8 +1,8 @@
 const questions = document.querySelectorAll<HTMLElement>(".question");
 const resultatDiv = document.getElementById("resultat") as HTMLDivElement;
-let currentQuestionIndex = 0;
+let currentQuestionIndex: number = 0;
 const answers: string[] = [];
-const reponse: any[] = [
+const reponse: string[] = [
   "name",
   "Léonard de Vinci",
   "8",
@@ -15,6 +15,9 @@ const reponse: any[] = [
   "William Shakespeare",
   "L'Everest",
 ];
+
+let life: number = 5;
+const lifeSection = document.querySelector<HTMLElement>("#score");
 
 for (let i = 1; i < questions.length; i++) {
   questions[i].style.display = "none";
@@ -37,11 +40,46 @@ function nextPage(event: Event) {
   ) as HTMLInputElement;
   answers[currentQuestionIndex] = answerInput.value;
 
-  if (currentQuestionIndex < questions.length - 1) {
-    showQuestion(currentQuestionIndex + 1);
+  const userAnswer = answerInput.value;
+  const correctAnswer = reponse[currentQuestionIndex];
+
+  if (currentQuestionIndex === 0) {
+    if (currentQuestionIndex < questions.length - 1) {
+      showQuestion(currentQuestionIndex + 1);
+    } else {
+      showResult();
+    }
   } else {
-    showResult();
+    if (userAnswer === correctAnswer) {
+      if (currentQuestionIndex < questions.length - 1) {
+        showQuestion(currentQuestionIndex + 1);
+      } else {
+        showResult();
+      }
+    } else {
+      life--;
+      if (lifeSection) {
+        lifeSection.textContent = life.toString();
+      }
+
+      if (life <= 0) {
+        questions[currentQuestionIndex].style.display = "none";
+        showResult();
+      } else {
+        if (currentQuestionIndex < questions.length - 1) {
+          showQuestion(currentQuestionIndex + 1);
+        } else {
+          showResult();
+        }
+      }
+    }
   }
+}
+
+function timeLost() {
+  let time:number = 10;
+  const timeSection = document.querySelector<HTMLElement>("#time");
+  
 }
 
 function showResult() {
