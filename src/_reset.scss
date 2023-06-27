@@ -86,7 +86,6 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -101,21 +100,17 @@ nav,
 section {
   display: block;
 }
-
 body {
   line-height: 1;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -123,43 +118,7 @@ q:after {
   content: "";
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-body {
-  background-image: linear-gradient(to bottom, #a4907c, #ad9986, #b6a391, #bfac9b, #c8b6a6);
-  min-height: 100vh;
-}
-body header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  background-image: linear-gradient(to bottom, #8d7b68, #93806d, #988572, #9e8b77, #a4907c);
-  border-bottom: 2px solid rgba(218, 195, 173, 0.5254901961);
-}
-body header h1 {
-  color: white;
-  font-size: 50px;
-}
-body main {
-  display: flex;
-  justify-content: center;
-}
-body main div {
-  background-color: rgba(241, 222, 201, 0.4235294118);
-}
-body main div h2 {
-  font-size: 20px;
-}
-
-.question {
-  display: none;
-}
-
-#resultat {
-  display: none;
-}/*# sourceMappingURL=style.css.map */

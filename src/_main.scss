@@ -1,0 +1,47 @@
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #a4907c,
+    #ad9986,
+    #b6a391,
+    #bfac9b,
+    #c8b6a6
+  );
+  min-height: 100vh;
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-image: linear-gradient(
+      to bottom,
+      #8d7b68,
+      #93806d,
+      #988572,
+      #9e8b77,
+      #a4907c
+    );
+    border-bottom: 2px solid #dac3ad86;
+    h1 {
+      color: white;
+      font-size: 50px;
+    }
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    div {
+      background-color: #f1dec96c;
+      h2 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+.question {
+  display: none;
+}
+
+#resultat {
+  display: none;
+}

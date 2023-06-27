@@ -2,6 +2,19 @@ const questions = document.querySelectorAll<HTMLElement>(".question");
 const resultatDiv = document.getElementById("resultat") as HTMLDivElement;
 let currentQuestionIndex = 0;
 const answers: string[] = [];
+const reponse: any[] = [
+  "name",
+  "Léonard de Vinci",
+  8,
+  "George Orwell",
+  "Groenland",
+  "Le Nil",
+  "Ottawa",
+  "Ludwig van Beethoven",
+  "1989-11-09",
+  "William Shakespeare",
+  "L'Everest",
+];
 
 for (let i = 1; i < questions.length; i++) {
   questions[i].style.display = "none";
