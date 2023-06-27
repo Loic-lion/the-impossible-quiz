@@ -60,6 +60,7 @@ function showResult() {
 
   resultatDiv.innerHTML = resultHTML;
   resultatDiv.style.display = "block";
+  questions[questions.length - 1].style.display = "none";
 }
 
 showQuestion(0);
