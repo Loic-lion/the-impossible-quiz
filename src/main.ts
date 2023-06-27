@@ -77,10 +77,36 @@ function nextPage(event: Event) {
 }
 
 function timeLost() {
-  let time:number = 10;
+  let time: number = 10;
   const timeSection = document.querySelector<HTMLElement>("#time");
-  
+
+  if (timeSection) {
+    timeSection.innerText = time.toString();
+  }
+
+  const timer = setInterval(() => {
+    time--;
+
+    if (timeSection) {
+      timeSection.innerText = time.toString();
+    }
+
+    if (time === 0) {
+      life--;
+      if (lifeSection) {
+        lifeSection.textContent = life.toString();
+      }
+
+      if (life <= 0) {
+        questions[currentQuestionIndex].style.display = "none";
+        showResult();
+      }
+
+      clearInterval(timer);
+    }
+  }, 1000);
 }
+timeLost();
 
 function showResult() {
   let nameUser: string = answers[0];
