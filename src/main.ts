@@ -1,24 +1,48 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+const questions = document.querySelectorAll<HTMLElement>(".question");
+const resultatDiv = document.getElementById("resultat") as HTMLDivElement;
+let currentQuestionIndex = 0;
+const answers: string[] = [];
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+for (let i = 1; i < questions.length; i++) {
+  questions[i].style.display = "none";
+}
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+function showQuestion(index: number) {
+  questions[currentQuestionIndex].style.display = "none";
+  questions[index].style.display = "block";
+  currentQuestionIndex = index;
+}
+
+function nextPage(event: Event) {
+  event.preventDefault();
+
+  const answerInput = document.getElementById(
+    `answer${currentQuestionIndex + 1}`
+  ) as HTMLInputElement;
+  answers[currentQuestionIndex] = answerInput.value;
+
+  if (currentQuestionIndex < questions.length - 1) {
+    showQuestion(currentQuestionIndex + 1);
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  let resultHTML = "<h2>Voici tes résultats :</h2>";
+
+  for (let i = 1; i < questions.length; i++) {
+    const question = questions[i];
+    const answer = answers[i];
+
+    resultHTML += `<p>Question ${i}: ${
+      question.querySelector("h2")!.textContent
+    }</p>`;
+    resultHTML += `<p>Réponse : ${answer}</p>`;
+  }
+
+  resultatDiv.innerHTML = resultHTML;
+  resultatDiv.style.display = "block";
+}
+
+showQuestion(0);
