@@ -1,6 +1,7 @@
 import { showQuestion } from "./showQuestion";
 import { showResult } from "./showResult";
 import { timeLost } from "./timeLost";
+import { showHint } from "./showHint";
 
 const questions = Array.from(
   document.querySelectorAll<HTMLElement>(".question")
@@ -52,6 +53,7 @@ function nextPage(event: Event) {
         currentQuestionIndex,
         currentQuestionIndex + 1
       );
+      showHint(currentQuestionIndex);
     } else {
       showResult(answers, questions, reponse, resultatDiv);
     }
@@ -80,6 +82,7 @@ function nextPage(event: Event) {
         currentQuestionIndex,
         currentQuestionIndex + 1
       );
+      showHint(currentQuestionIndex);
     } else {
       showResult(answers, questions, reponse, resultatDiv);
     }
@@ -103,7 +106,7 @@ function nextPage(event: Event) {
       return;
     }
   }
-
+  console.log(currentQuestionIndex);
   timeLost(life, lifeSection, questions, currentQuestionIndex, () =>
     showResult(answers, questions, reponse, resultatDiv)
   );
