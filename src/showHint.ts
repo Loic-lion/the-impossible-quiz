@@ -15,9 +15,11 @@ export function showHint(currentQuestionIndex: number) {
 
   const existingHintButton = document.querySelector<HTMLElement>("#hintButton");
   const existingHintDiv = document.querySelector<HTMLElement>("#hint");
+
   if (existingHintButton && existingHintButton.parentNode) {
     existingHintButton.parentNode.removeChild(existingHintButton);
   }
+
   if (existingHintDiv && existingHintDiv.parentNode) {
     existingHintDiv.parentNode.removeChild(existingHintDiv);
   }
@@ -27,6 +29,7 @@ export function showHint(currentQuestionIndex: number) {
     hintButton.id = "hintButton";
     hintButton.textContent = "Indice";
     const footer = document.querySelector<HTMLElement>("footer");
+
     if (footer) {
       footer.appendChild(hintButton);
     }
@@ -36,8 +39,10 @@ export function showHint(currentQuestionIndex: number) {
       const hint = Indices[hintIndex];
       const hintDiv = document.createElement("div");
       hintDiv.id = "hint";
+      hintDiv.className = "fade-in";
       const mainDiv = document.querySelector<HTMLElement>("main");
       hintDiv.textContent = hint;
+
       if (mainDiv) {
         mainDiv.appendChild(hintDiv);
       }

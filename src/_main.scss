@@ -35,6 +35,17 @@ body {
   main {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    #hint {
+      text-align: center;
+      color: white;
+      background-color: #32832bb7;
+      max-width: 350px;
+      border-radius: 5px;
+      border: 2px solid #dac3ad86;
+      padding: 5px;
+    }
     .question {
       background-color: #f1dec96c;
       min-height: 100px;
@@ -42,6 +53,7 @@ body {
       border-radius: 5px;
       border: 2px solid #dac3ad86;
       display: none;
+      margin-bottom: 40px;
 
       form {
         display: flex;
@@ -112,9 +124,51 @@ body {
     bottom: 0;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 110px;
     border-top: 2px solid #dac3ad86;
+
+    #hintButton {
+      margin-bottom: 10px;
+      border-radius: 20px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.658);
+      padding: 5px;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.658);
+        color: white;
+      }
+    }
   }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
 }

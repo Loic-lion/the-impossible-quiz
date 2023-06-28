@@ -152,6 +152,17 @@ body header h1 {
 body main {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body main #hint {
+  text-align: center;
+  color: white;
+  background-color: rgba(50, 131, 43, 0.7176470588);
+  max-width: 350px;
+  border-radius: 5px;
+  border: 2px solid rgba(218, 195, 173, 0.5254901961);
+  padding: 5px;
 }
 body main .question {
   background-color: rgba(241, 222, 201, 0.4235294118);
@@ -160,6 +171,7 @@ body main .question {
   border-radius: 5px;
   border: 2px solid rgba(218, 195, 173, 0.5254901961);
   display: none;
+  margin-bottom: 40px;
 }
 body main .question form {
   display: flex;
@@ -224,8 +236,49 @@ body footer {
   bottom: 0;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 110px;
   border-top: 2px solid rgba(218, 195, 173, 0.5254901961);
+}
+body footer #hintButton {
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.658);
+  padding: 5px;
+}
+body footer #hintButton:hover {
+  background-color: rgba(0, 0, 0, 0.658);
+  color: white;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-in {
+  animation: fadeIn 1s ease-in;
 }/*# sourceMappingURL=style.css.map */
