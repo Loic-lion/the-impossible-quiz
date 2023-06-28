@@ -1,4 +1,9 @@
-const questions = document.querySelectorAll<HTMLElement>(".question");
+import { showQuestion } from "./showQuestion";
+import { timeLost } from "./timeLost";
+
+const questions = Array.from(
+  document.querySelectorAll<HTMLElement>(".question")
+);
 const resultatDiv = document.getElementById("resultat") as HTMLDivElement;
 let currentQuestionIndex: number = 0;
 const answers: string[] = [];
@@ -23,11 +28,7 @@ for (let i = 1; i < questions.length; i++) {
   questions[i].style.display = "none";
 }
 
-function showQuestion(index: number) {
-  questions[currentQuestionIndex].style.display = "none";
-  questions[index].style.display = "block";
-  currentQuestionIndex = index;
-}
+showQuestion(questions, currentQuestionIndex, 0);
 
 function nextPage(event: Event) {
   event.preventDefault();
@@ -45,14 +46,27 @@ function nextPage(event: Event) {
 
   if (currentQuestionIndex === 0) {
     if (currentQuestionIndex < questions.length - 1) {
-      showQuestion(currentQuestionIndex + 1);
+      currentQuestionIndex = showQuestion(
+        questions,
+        currentQuestionIndex,
+        currentQuestionIndex + 1
+      );
+      timeLost(life, lifeSection, questions, currentQuestionIndex, showResult);
     } else {
       showResult();
     }
   } else {
     if (userAnswer === correctAnswer) {
+      life++;
+      if (lifeSection) {
+        lifeSection.textContent = life.toString();
+      }
       if (currentQuestionIndex < questions.length - 1) {
-        showQuestion(currentQuestionIndex + 1);
+        currentQuestionIndex = showQuestion(
+          questions,
+          currentQuestionIndex,
+          currentQuestionIndex + 1
+        );
       } else {
         showResult();
       }
@@ -67,7 +81,11 @@ function nextPage(event: Event) {
         showResult();
       } else {
         if (currentQuestionIndex < questions.length - 1) {
-          showQuestion(currentQuestionIndex + 1);
+          currentQuestionIndex = showQuestion(
+            questions,
+            currentQuestionIndex,
+            currentQuestionIndex + 1
+          );
         } else {
           showResult();
         }
@@ -76,37 +94,7 @@ function nextPage(event: Event) {
   }
 }
 
-function timeLost() {
-  let time: number = 10;
-  const timeSection = document.querySelector<HTMLElement>("#time");
-
-  if (timeSection) {
-    timeSection.innerText = time.toString();
-  }
-
-  const timer = setInterval(() => {
-    time--;
-
-    if (timeSection) {
-      timeSection.innerText = time.toString();
-    }
-
-    if (time === 0) {
-      life--;
-      if (lifeSection) {
-        lifeSection.textContent = life.toString();
-      }
-
-      if (life <= 0) {
-        questions[currentQuestionIndex].style.display = "none";
-        showResult();
-      }
-
-      clearInterval(timer);
-    }
-  }, 1000);
-}
-timeLost();
+// timeLost(life, lifeSection, questions, currentQuestionIndex, showResult);
 
 function showResult() {
   let nameUser: string = answers[0];
@@ -127,7 +115,7 @@ function showResult() {
   questions[questions.length - 1].style.display = "none";
 }
 
-showQuestion(0);
+showQuestion(questions, currentQuestionIndex, 0);
 
 const form = document.querySelectorAll("form");
 form.forEach((formElement) => {
