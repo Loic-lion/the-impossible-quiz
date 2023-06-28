@@ -1,4 +1,5 @@
 import { showQuestion } from "./showQuestion";
+import { showResult } from "./showResult";
 import { timeLost } from "./timeLost";
 
 const questions = Array.from(
@@ -21,7 +22,7 @@ const reponse: string[] = [
   "L'Everest",
 ];
 
-let life: number = 5;
+let life: number = 3;
 const lifeSection = document.querySelector<HTMLElement>("#score");
 
 for (let i = 1; i < questions.length; i++) {
@@ -51,9 +52,8 @@ function nextPage(event: Event) {
         currentQuestionIndex,
         currentQuestionIndex + 1
       );
-      timeLost(life, lifeSection, questions, currentQuestionIndex, showResult);
     } else {
-      showResult();
+      showResult(answers, questions, reponse, resultatDiv);
     }
   } else {
     if (userAnswer === correctAnswer) {
@@ -61,58 +61,52 @@ function nextPage(event: Event) {
       if (lifeSection) {
         lifeSection.textContent = life.toString();
       }
-      if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex = showQuestion(
-          questions,
-          currentQuestionIndex,
-          currentQuestionIndex + 1
-        );
-      } else {
-        showResult();
-      }
     } else {
+      if (life <= 0) {
+        questions[currentQuestionIndex].style.display = "none";
+        showResult(answers, questions, reponse, resultatDiv);
+        return;
+      }
+
       life--;
       if (lifeSection) {
         lifeSection.textContent = life.toString();
       }
+    }
 
-      if (life <= 0) {
-        questions[currentQuestionIndex].style.display = "none";
-        showResult();
-      } else {
-        if (currentQuestionIndex < questions.length - 1) {
-          currentQuestionIndex = showQuestion(
-            questions,
-            currentQuestionIndex,
-            currentQuestionIndex + 1
-          );
-        } else {
-          showResult();
-        }
-      }
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex = showQuestion(
+        questions,
+        currentQuestionIndex,
+        currentQuestionIndex + 1
+      );
+    } else {
+      showResult(answers, questions, reponse, resultatDiv);
     }
   }
-}
 
-// timeLost(life, lifeSection, questions, currentQuestionIndex, showResult);
-
-function showResult() {
-  let nameUser: string = answers[0];
-  let resultHTML = "<h2>Voici tes résultats " + nameUser + ":</h2>";
-
-  for (let i = 1; i < questions.length; i++) {
-    const question = questions[i];
-    const answer = answers[i];
-
-    resultHTML += `<p>Question ${i}: ${
-      question.querySelector("h2")!.textContent
-    }</p>`;
-    resultHTML += `<p>Votre réponse : ${answer}. Solution : ${reponse[i]}</p>`;
+  if (life <= 0) {
+    questions[currentQuestionIndex].style.display = "none";
+    showResult(answers, questions, reponse, resultatDiv);
+    return;
   }
 
-  resultatDiv.innerHTML = resultHTML;
-  resultatDiv.style.display = "block";
-  questions[questions.length - 1].style.display = "none";
+  const timeSection = document.querySelector<HTMLElement>("#time");
+  if (timeSection && parseInt(timeSection.innerText) <= 0) {
+    life--;
+    if (lifeSection) {
+      lifeSection.textContent = life.toString();
+    }
+    if (life <= 0) {
+      questions[currentQuestionIndex].style.display = "none";
+      showResult(answers, questions, reponse, resultatDiv);
+      return;
+    }
+  }
+
+  timeLost(life, lifeSection, questions, currentQuestionIndex, () =>
+    showResult(answers, questions, reponse, resultatDiv)
+  );
 }
 
 showQuestion(questions, currentQuestionIndex, 0);
