@@ -219,12 +219,12 @@ body main .resultat {
 }
 body main .resultat h2 {
   font-size: 20px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 30px;
 }
 body main .resultat p {
-  margin: 10px;
+  margin: 15px;
 }
 body main .resultat::-webkit-scrollbar {
   display: none;
@@ -235,14 +235,17 @@ body footer {
   position: absolute;
   bottom: 0;
   width: 100vw;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
   height: 110px;
   border-top: 2px solid rgba(218, 195, 173, 0.5254901961);
 }
+body footer section {
+  margin-bottom: 15px;
+}
+body footer section:first-child {
+  margin-top: 10px;
+}
 body footer #hintButton {
-  margin-bottom: 10px;
   border-radius: 20px;
   border: none;
   background-color: rgba(255, 255, 255, 0.658);

@@ -1,7 +1,7 @@
 export function showHint(currentQuestionIndex: number) {
   const Indices: string[] = [
     "",
-    "On lui doit aussi 'l'Homme de Vitruve",
+    "On lui doit aussi l'Homme de Vitruve",
     "entre 6 et 10",
     "Sa véritable identité est Eric Arthur Blair",
     "C'est un territoire danois autonome situé entre l'Atlantique Nord et l'océan Arctique",
@@ -35,11 +35,6 @@ export function showHint(currentQuestionIndex: number) {
     }
 
     hintButton.addEventListener("click", () => {
-
-
-
-
-
       const hintIndex = currentQuestionIndex;
       const hint = Indices[hintIndex];
       const hintDiv = document.createElement("div");
@@ -50,6 +45,10 @@ export function showHint(currentQuestionIndex: number) {
 
       if (mainDiv) {
         mainDiv.appendChild(hintDiv);
+      }
+
+      if (hintButton.parentNode) {
+        hintButton.parentNode.removeChild(hintButton);
       }
     });
   }
