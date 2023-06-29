@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>the impossible quiz</title>
+    
+    <script type="module" crossorigin src="/assets/index-596592c1.js"></script>
+    <link rel="stylesheet" href="/assets/index-ee12fae3.css">
+  </head>
+  <body>
+    <header>
+      <h1>The Impossible Quiz</h1>
+    </header>
+    <main>
+      <div id="page0" class="question">
+        <form>
+          <h2>Comment tu t'appelles?</h2>
+          <input
+            type="text"
+            name="answer1"
+            placeholder="Entre ton prénom/pseudo"
+            id="answer1"
+            required
+          />
+          <button id="nextButton">Commencer</button>
+        </form>
+      </div>
+
+      <div id="page1" class="question">
+        <form>
+          <h2>Qui a peint la célèbre fresque "La Cène" ?</h2>
+          <input
+            type="text"
+            name="answer2"
+            placeholder="Entrez votre réponse"
+            id="answer2"
+            required
+          />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page2" class="question">
+        <form>
+          <h2>
+            Combien de planètes composent notre système solaire (entrez un
+            chiffre) ?
+          </h2>
+          <input type="number" name="answer" id="answer3" required />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page3" class="question">
+        <form>
+          <h2>Qui a écrit le roman "1984" ?</h2>
+          <select
+            name="answer"
+            id="answer4"
+            required
+            placeholder="Entrez votre réponse"
+          >
+            <option>George Orwell</option>
+            <option>Stephen King</option>
+            <option>Tolkien</option>
+          </select>
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page4" class="question">
+        <form>
+          <h2>Quelle est la plus grande île du monde ?</h2>
+          <input
+            type="text"
+            name="answer"
+            id="answer5"
+            placeholder="Entrez votre réponse"
+          />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page5" class="question">
+        <form id="form-1">
+          <h2>Quel est le plus long fleuve d'Afrique ?</h2>
+          <input
+            type="text"
+            name="answer"
+            id="answer6"
+            placeholder="Entrez votre réponse"
+          />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page6" class="question">
+        <form id="form-1">
+          <h2>Quelle est la capitale du Canada ?</h2>
+          <input
+            type="text"
+            name="answer"
+            id="answer7"
+            placeholder="Entrez votre réponse"
+          />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page7" class="question">
+        <form id="form-1">
+          <h2>
+            Quel célèbre compositeur autrichien a composé la Symphonie n°9, "La
+            Neuvième" ?
+          </h2>
+          <select name="answer" id="answer8" required>
+            <option>Rammstein</option>
+            <option>Ludwig van Beethoven</option>
+            <option>Wolfgang Amadeus Mozart</option>
+          </select>
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page8" class="question">
+        <form id="form-1">
+          <h2>Quelle est la date de la chute du mur de Berlin ?</h2>
+          <input type="date" id="answer9" name="year-input" />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page9" class="question">
+        <form id="form-1">
+          <h2>Qui a écrit la pièce de théâtre "Roméo et Juliette" ?</h2>
+          <input
+            type="text"
+            name="answer"
+            id="answer10"
+            placeholder="Entrez votre réponse"
+          />
+          <button id="nextButton">Suivant</button>
+        </form>
+      </div>
+
+      <div id="page10" class="question">
+        <form id="form-1">
+          <h2>Quel est le mont le plus haut du monde ?</h2>
+          <input
+            type="text"
+            name="answer"
+            id="answer11"
+            placeholder="Entrez votre réponse"
+          />
+          <button id="nextButton">Résultats</button>
+        </form>
+      </div>
+
+      <div class="resultat" id="resultat" style="display: none"></div>
+    </main>
+    <footer>
+      <section class="container_life">
+        <p>Vie(s) restante(s): <span id="score">3</span></p>
+      </section>
+
+      <section class="container_time">
+        <p>Temps restant:<span id="time">10</span></p>
+      </section>
+    </footer>
+    
+  </body>
+</html>
