@@ -281,4 +281,18 @@ body footer #hintButton:hover {
 }
 .fade-in {
   animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+}
+.fade-out {
+  animation: fadeOut 1s ease-in;
 }/*# sourceMappingURL=style.css.map */

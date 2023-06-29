@@ -35,6 +35,11 @@ export function showHint(currentQuestionIndex: number) {
     }
 
     hintButton.addEventListener("click", () => {
+
+
+
+
+
       const hintIndex = currentQuestionIndex;
       const hint = Indices[hintIndex];
       const hintDiv = document.createElement("div");
